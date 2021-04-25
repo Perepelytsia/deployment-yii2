@@ -3,6 +3,7 @@ services:
     nginx:
         container_name: nginx-latest
         image: nginx:latest
+        restart: unless-stopped
         ports:
             - "84:80"
         volumes:
@@ -10,18 +11,19 @@ services:
             - ./backend:/var/www
             - ./logs/nginx:/var/log/nginx
         links:
-            - php7.1-fpm
-    php7.1-fpm:
-        container_name: php7.1-fpm
-        build: ./images/php7.1-fpm
+            - php
+    php:
+        container_name: php
+        build: ./images/php
+        restart: unless-stopped
         volumes:
-            - ./etc/php7.1-fpm /usr/local/etc/php/conf.d/40-custom.ini
+            - ./etc/php /usr/local/etc/php/conf.d/40-custom.ini
             - ./backend:/var/www
-            - ./logs/php7.1-fpm:/var/log/php
+            - ./logs/php:/var/log/php
         links:
-            - mysql5.7
-    mysql5.7:
-        container_name: mysql5.7
+            - mysql
+    mysql:
+        container_name: mysql
         image: mysql:5.7.22
         restart: unless-stopped
         ports:
@@ -32,5 +34,5 @@ services:
             - MYSQL_USER=docker2
             - MYSQL_PASSWORD=docker2
         volumes:
-            - ./etc/mysql5.7/my.cnf:/etc/mysql/conf.d/my.cnf
-            - ./store/mysql5.7:/var/lib/mysql
+            - ./etc/mysql/my.cnf:/etc/mysql/conf.d/my.cnf
+            - ./store/mysql:/var/lib/mysql
