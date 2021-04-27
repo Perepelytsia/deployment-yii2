@@ -9,9 +9,6 @@ services:
             - ./etc/nginx:/etc/nginx/conf.d
             - ./backend:/var/www
             - ./logs/nginx:/var/log/nginx
-        environment:
-            - NGINX_HOST=foobar.localhost
-        command: /bin/bash -c "envsubst < /etc/nginx/conf.d/mysite.template > /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;'" 
         links:
             - php7.1
     php7.1:
