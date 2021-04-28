@@ -34,6 +34,7 @@ services:
             - ./etc/mysql/my.cnf:/etc/mysql/conf.d/my.cnf
             - ./store/mysql:/var/lib/mysql
             - ./logs/mysql:/var/log/mysql/general-log.log
+            - ./dump/mysql:/docker-entrypoint-initdb.d
     redis5.0:
         image: redis:5.0
         volumes:
