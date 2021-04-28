@@ -29,10 +29,7 @@ services:
         image: mysql:5.7
         restart: unless-stopped
         environment:
-            - MYSQL_DATABASE=sandmanslots
             - MYSQL_ROOT_PASSWORD=admin
-            - MYSQL_USER=root
-            - MYSQL_PASSWORD=admin
         volumes:
             - ./etc/mysql/my.cnf:/etc/mysql/conf.d/my.cnf
             - ./store/mysql:/var/lib/mysql
