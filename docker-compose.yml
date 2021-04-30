@@ -21,6 +21,7 @@ services:
         links:
             - mysql5.7
             - redis5.0
+            - clickhouse21.4:
     mysql5.7:
         image: mysql:5.7
         restart: unless-stopped
@@ -28,14 +29,23 @@ services:
             - MYSQL_DATABASE=slots
             - MYSQL_ROOT_PASSWORD=admin
         volumes:
-            - ./dump:/docker-entrypoint-initdb.d/
+            - ./dump/mysql:/docker-entrypoint-initdb.d/
             - ./etc/mysql:/etc/mysql/conf.d
             - ./store/mysql:/var/lib/mysql
             - ./logs/mysql:/var/log/mysql
     redis5.0:
         image: redis:5.0
+        restart: unless-stopped
         volumes:
             - ./store/redis:/var/lib/redis
             - ./etc/redis/redis.conf:/usr/local/etc/redis/redis.conf
             - ./logs/redis:/var/log/redis
+    clickhouse21.4:
+        image: yandex/clickhouse-server:21.4
+        restart: unless-stopped
+        volumes:
+            - ./dump/clickhouse:/docker-entrypoint-initdb.d/
+            - ./etc/clickhouse:/etc/clickhouse-server
+            - ./store/clickhouse:/var/lib/clickhouse
+            - ./logs/clickhouse:/var/log/clickhouse-server
 
