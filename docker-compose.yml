@@ -14,8 +14,6 @@ services:
     php7.1:
         build: ./images/php
         restart: unless-stopped
-        #environment:
-            #- COMPOSER_AUTH="${COMPOSER_AUTH}"
         volumes:
             #- ./etc/php /usr/local/etc/php/conf.d/40-custom.ini
             - ./backend:/var/www
@@ -30,6 +28,7 @@ services:
             - MYSQL_DATABASE=slots
             - MYSQL_ROOT_PASSWORD=admin
         volumes:
+            - ./dump:/docker-entrypoint-initdb.d/
             - ./etc/mysql/my.cnf:/etc/mysql/conf.d/my.cnf
             - ./store/mysql:/var/lib/mysql
             - ./logs/mysql:/var/log/mysql/general-log.log
