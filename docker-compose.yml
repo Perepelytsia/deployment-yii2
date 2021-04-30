@@ -15,7 +15,7 @@ services:
         build: ./images/php
         restart: unless-stopped
         volumes:
-            #- ./etc/php /usr/local/etc/php/conf.d/40-custom.ini
+            - ./etc/php/custom.ini /usr/local/etc/php/conf.d/custom.ini
             - ./backend:/var/www
             - ./logs/php:/var/log/php
         links:
@@ -29,9 +29,9 @@ services:
             - MYSQL_ROOT_PASSWORD=admin
         volumes:
             - ./dump:/docker-entrypoint-initdb.d/
-            - ./etc/mysql/my.cnf:/etc/mysql/conf.d/my.cnf
+            - ./etc/mysql:/etc/mysql/conf.d
             - ./store/mysql:/var/lib/mysql
-            - ./logs/mysql:/var/log/mysql/general-log.log
+            - ./logs/mysql:/var/log/mysql
     redis5.0:
         image: redis:5.0
         volumes:
