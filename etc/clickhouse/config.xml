@@ -52,8 +52,9 @@
     <http_server_default_response><![CDATA[<html ng-app="SMI2"><head><base href="http://ui.tabix.io/"></head><body><div ui-view="" class="content-ui"></div><script src="http://loader.tabix.io/master.js"></script></body></html>]]></http_server_default_response>
     -->
 
-    <!-- Port for communication between replicas. Used for data exchange. -->
-    <interserver_http_port>9009</interserver_http_port>
+    <!-- Port for communication between replicas. Used for data exchange.
+    	<interserver_http_port>9009</interserver_http_port> 
+    -->
 
     <!-- Hostname that is used by other replicas to request this server.
          If not specified, than it is determined analoguous to 'hostname -f' command.
