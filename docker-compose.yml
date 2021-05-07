@@ -22,13 +22,14 @@ services:
             - mysql5.7
             - redis5.0
             - clickhouse21.4
-    python3.6:
+    python3.8:
         build: ./images/python
         volumes:
             - ./backend:/var/www
+        stdin_open: true
+        tty: true
         links:
             - mysql5.7
-            - redis5.0
             - clickhouse21.4
     mysql5.7:
         image: mysql:5.7
