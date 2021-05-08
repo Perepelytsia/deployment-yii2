@@ -54,6 +54,8 @@ RUN apt-get update \
         wddx \
         zip
 
+RUN apt-get install vim
+
 # Install APCu and APC backward compatibility
 RUN pecl install apcu \
     && pecl install apcu_bc-1.0.3 \

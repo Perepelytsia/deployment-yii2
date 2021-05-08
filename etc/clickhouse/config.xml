@@ -11,7 +11,7 @@
     </logger>
     <!--display_name>production</display_name--> <!-- It is the name that will be shown in the client -->
     <http_port>8123</http_port>
-    <tcp_port>9000</tcp_port>
+    <tcp_port>9001</tcp_port>
 
     <!-- For HTTPS and SSL over native protocol. -->
     <!--
@@ -161,7 +161,7 @@
             <shard>
                 <replica>
                     <host>localhost</host>
-                    <port>9000</port>
+                    <port>9001</port>
                 </replica>
             </shard>
         </test_shard_localhost>
@@ -169,13 +169,13 @@
              <shard>
                  <replica>
                      <host>localhost</host>
-                     <port>9000</port>
+                     <port>9001</port>
                  </replica>
              </shard>
              <shard>
                  <replica>
                      <host>localhost</host>
-                     <port>9000</port>
+                     <port>9001</port>
                  </replica>
              </shard>
          </test_cluster_two_shards_localhost>
