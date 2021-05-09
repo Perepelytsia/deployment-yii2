@@ -54,7 +54,7 @@ services:
         restart: unless-stopped
         volumes:
             - ./dump/clickhouse:/docker-entrypoint-initdb.d/
-            - ./etc/clickhouse:/etc/clickhouse-server
+            - ./etc/clickhouse/custom.xml:/etc/clickhouse-server/config.d/custom.xml
             - ./store/clickhouse:/var/lib/clickhouse
             - ./logs/clickhouse:/var/log/clickhouse-server
 

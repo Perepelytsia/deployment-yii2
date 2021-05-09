@@ -24,5 +24,12 @@ return [
                 'database' => 'slots',
             ]);
         },
+        'redis' => [
+            'class' => 'yii\redis\Connection',
+            'port'     => 6379,
+            'database' => 0,
+            'unixSocket' => null,
+            'hostname' => 'redis5.0',
+        ],
     ]
 ];
