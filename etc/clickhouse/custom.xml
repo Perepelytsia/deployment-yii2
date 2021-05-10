@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<yandex>
+    <logger>
+        <level>warning</level>
+        <log>/var/log/clickhouse-server/clickhouse-server.log</log>
+        <errorlog>/var/log/clickhouse-server/clickhouse-server.err.log</errorlog>
+        <size>1000M</size>
+        <count>10</count>
+    </logger>
+    <http_port>8123</http_port>
+    <tcp_port>9000</tcp_port>
+</yandex>

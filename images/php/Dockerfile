@@ -5,6 +5,7 @@ RUN apt-get update \
     && apt-get install -y \
         apt-utils \
         curl \
+        vim \
         dnsutils \
         git \
         unzip \
@@ -53,8 +54,6 @@ RUN apt-get update \
         tidy \
         wddx \
         zip
-
-RUN apt-get install vim
 
 # Install APCu and APC backward compatibility
 RUN pecl install apcu \
